@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="columns mt-4">
+        <div class="column is-4 is-offset-4 has-text-centered">
+            <p>
+                <img src="{{ asset('images/logo-inversed.png') }}" alt="Logo">
+            </p>
+            <p class="is-size-3 mt-4">Welcome to the homepage of the CharmBot Backend</p>
+            <p class="mt-5">
+                <a href="{{ path('admin') }}" class="button is-link">
+                    Access the admin page
+                </a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

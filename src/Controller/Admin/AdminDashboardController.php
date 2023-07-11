@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Quote;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -42,7 +43,9 @@ class AdminDashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Quotes Management', 'fas fa-list', Quote::class);
+        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-tv');
+        yield MenuItem::linkToRoute('Return to website', 'fa fa-home', 'app_home');
+        yield MenuItem::linkToCrud('Quotes Management', 'fas fa-quote-left', Quote::class);
+        yield MenuItem::linkToCrud('Users roles management', 'fas fa-user', User::class);
     }
 }

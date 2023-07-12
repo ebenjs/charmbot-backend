@@ -12,10 +12,6 @@
 
                 {% if error %}
                     <article class="message is-danger">
-                        <div class="message-header">
-                            <p>Error</p>
-                            <button class="delete" aria-label="delete"></button>
-                        </div>
                         <div class="message-body">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     </article>
                 {% endif %}

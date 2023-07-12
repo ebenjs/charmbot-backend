@@ -3,21 +3,112 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
+    <div class="columns mt-4">
+        <div class="column is-4 is-offset-4">
+            <h1 class="is-size-3 mb-4">Register</h1>
 
-    <h1>Register</h1>
+            {% for flash_error in app.flashes('verify_email_error') %}
+                <article class="message is-danger">
+                    <div class="message-body">{{ flash_error }}</div>
+                </article>
+            {% endfor %}
 
-    {{ form_errors(registrationForm) }}
+            {% if form_errors(registrationForm) %}
+                <article class="message is-danger">
+                    <div class="message-body">
+                        {{ form_errors(registrationForm) }}
+                    </div>
+                </article>
+            {% endif %}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+
+
+            {{ form_start(registrationForm) }}
+
+            <div class="field mt-4">
+                <label class="label">First name</label>
+                <div class="control">
+                    {{ form_widget(registrationForm.firstName, {
+                        attr: {
+                            class: 'input',
+                            placeholder: 'Firstname'
+                        }
+                    }) }}
+                </div>
+            </div>
+
+            <div class="field mt-4">
+                <label class="label">Last name</label>
+                <div class="control">
+                    {{ form_widget(registrationForm.lastName, {
+                        attr: {
+                            class: 'input',
+                            placeholder: 'Lastname'
+                        }
+                    }) }}
+                </div>
+            </div>
+
+            <div class="field mt-4">
+                <label class="label" for="inputEmail">Email</label>
+                <div class="control">
+                    {{ form_widget(registrationForm.email, {
+                        attr: {
+                            class: 'input',
+                            placeholder: 'Email address',
+                            autocomplete: 'email',
+                            autofocus: 'autofocus'
+                        }
+                    }) }}
+                </div>
+                <p class="help">Enter your email address</p>
+            </div>
+
+            <div class="field mt-4">
+                <label class="label">Password</label>
+                <div class="control">
+                    {{ form_widget(registrationForm.password.first, {
+                        attr: {
+                            class: 'input',
+                            placeholder: 'Password'
+                        }
+                    }) }}
+                </div>
+                <p class="help">Choose a password</p>
+            </div>
+
+            <div class="field mt-4">
+                <label class="label">Confirm password</label>
+                <div class="control">
+                    {{ form_widget(registrationForm.password.second, {
+                        attr: {
+                            class: 'input',
+                            placeholder: 'Confirm password'
+                        }
+                    }) }}
+                </div>
+                <p class="help">Retype the password you have chosen</p>
+            </div>
+
+            <div class="mt-4">
+                <label class="checkbox">
+                    {{ form_widget(registrationForm.agreeTerms, {
+                        attr: {
+                            class: 'checkbox'
+                        }
+                    }) }}
+                    I agree to the <a href="#">terms and conditions</a>
+                </label>
+            </div>
+
+            <div class="mt-4">
+
+                <button class="button is-link is-fullwidth" type="submit">
+                    Register
+                </button>
+            </div>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
 {% endblock %}

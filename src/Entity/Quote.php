@@ -20,12 +20,6 @@ class Quote
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $author = null;
 
-    /**
-     * @param int|null $id
-     * @param string|null $phrase
-     * @param string|null $author
-     */
-
     public function getId(): ?int
     {
         return $this->id;

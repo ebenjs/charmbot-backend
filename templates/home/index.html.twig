@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="columns mt-4">
+        <div class="column is-4 is-offset-4 has-text-centered">
+            <p>
+                <img src="{{ asset('images/logo-inversed.png') }}" alt="Logo">
+            </p>
+            <p class="is-size-3 mt-4">Welcome to the homepage of the CharmBot Backend!</p>
+
+            {% if is_granted('ROLE_USER') %}
+                <p class="is-size-5 mt-4">You are logged in as <strong>{{ app.user.email }}</strong>.</p>
+            {% else %}
+                <p class="is-size-5 mt-4">You are not logged in.</p>
+            {% endif %}
+
+            <div class="mt-5">
+                <div class="field is-grouped is-justify-content-center">
+                    <div class="control">
+                        <a href="{{ path('admin') }}" class="button is-link">
+                            Access the admin page
+                        </a>
+                        {% if is_granted('ROLE_USER') %}
+                            <a href="{{ path('app_logout') }}" class="button is-danger">
+                                Logout
+                            </a>
+                        {% else %}
+                            <a href="{{ path('app_login') }}" class="button is-primary">
+                                Login
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

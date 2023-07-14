@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'charmbot'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0D15AAE7EE0D485ABEF3610BBECDA3D8 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F89DC64D7905433282EF42383804BB0C }}
           package: .

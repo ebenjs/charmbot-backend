@@ -39,7 +39,7 @@ class Quote
 
     public function getAuthor(): ?string
     {
-        return $this->author;
+        return ucfirst(mb_strtolower($this->author));
     }
 
     public function setAuthor(?string $author): static

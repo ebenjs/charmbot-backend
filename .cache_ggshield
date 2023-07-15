@@ -1,1 +1,1 @@
-{"last_found_secrets": [{"match": "56128b497ba3a9da261435e3d9e55e26d0068346ea259a51cbb70284d8417e4b", "name": "Generic High Entropy Secret - .env"}]}
+{"last_found_secrets": [{"name": "Generic High Entropy Secret - .env", "match": "56128b497ba3a9da261435e3d9e55e26d0068346ea259a51cbb70284d8417e4b"}]}
